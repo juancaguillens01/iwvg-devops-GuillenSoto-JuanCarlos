@@ -4,7 +4,7 @@ import es.upm.miw.iwvg_devops.Fraction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class FractionTest {
     private Fraction fraction;
@@ -53,6 +53,46 @@ class FractionTest {
     void testDecimal() {
         assertEquals(0.75, fraction.decimal(), 0.001);
     }
+
+    @Test
+    void testIsProper() {
+        assertTrue(fraction.isProper());
+    }
+
+    @Test
+    void testIsImproper() {
+        assertFalse(fraction.isImproper());
+    }
+
+    @Test
+    void testEquivalent() {
+        assertTrue(fraction.equivalent(new Fraction(6, 8)));
+    }
+
+    @Test
+    void testAdd() {
+        Fraction f1 = new Fraction(3, 4);
+        this.fraction.add(f1);
+        assertEquals(24, this.fraction.getNumerator());
+        assertEquals(16, this.fraction.getDenominator());
+    }
+
+    @Test
+    void testMultiply() {
+        Fraction f1 = new Fraction(3, 4);
+        this.fraction.multiply(f1);
+        assertEquals(9, this.fraction.getNumerator());
+        assertEquals(16, this.fraction.getDenominator());
+    }
+
+    @Test
+    void testDivide() {
+        Fraction f1 = new Fraction(3, 4);
+        this.fraction.divide(f1);
+        assertEquals(12, this.fraction.getNumerator());
+        assertEquals(12, this.fraction.getDenominator());
+    }
+
 
     @Test
     void testToString() {
