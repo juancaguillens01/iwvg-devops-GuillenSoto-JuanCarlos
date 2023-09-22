@@ -31,5 +31,12 @@ class SearchesTest {
                 new Searches().findUserFamilyNameBySomeImproperFraction()
                         .collect(Collectors.toList()));
     }
+
+    @Test
+    void testFindUserFamilyNameInitialBySomeProperFraction() {
+        assertEquals(List.of("O.", "A.", "O.", "A."),
+                new Searches().findUserFamilyNameInitialBySomeProperFraction()
+                        .collect(Collectors.toList()));
+    }
 }
 
