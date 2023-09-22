@@ -24,5 +24,12 @@ class SearchesTest {
         assertEquals(0, new Searches().findFractionMultiplicationByUserFamilyName("Torres").getNumerator());
         assertEquals(0, new Searches().findFractionMultiplicationByUserFamilyName("Torres").getDenominator());
     }
+
+    @Test
+    void testFindUserFamilyNameBySomeImproperFraction() {
+        assertEquals(List.of("Fernandez", "Blanco", "López", "Torres", "Blanco", "Torres"),
+                new Searches().findUserFamilyNameBySomeImproperFraction()
+                        .collect(Collectors.toList()));
+    }
 }
 
