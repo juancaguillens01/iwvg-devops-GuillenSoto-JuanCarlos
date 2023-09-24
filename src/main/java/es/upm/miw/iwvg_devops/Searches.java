@@ -31,6 +31,7 @@ public class Searches {
     }
 
     public Stream<String> findUserFamilyNameInitialBySomeProperFraction() {
+        // fixed some problems
         return new UsersDatabase().findAll()
                 .filter(user -> user.getFractions().stream()
                         .anyMatch(Fraction::isProper))
